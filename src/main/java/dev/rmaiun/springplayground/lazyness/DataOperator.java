@@ -1,19 +1,18 @@
 package dev.rmaiun.springplayground.lazyness;
 
 import javax.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DataOperator {
 
-  private final TextProcessor textProcessor;
-  private final ImageCreator imageCreator;
-
-  public DataOperator(TextProcessor textProcessor, @Lazy ImageCreator imageCreator) {
-    this.textProcessor = textProcessor;
-    this.imageCreator = imageCreator;
-  }
+  @Autowired
+  private TextProcessor textProcessor;
+  @Lazy
+  @Autowired
+  private ImageCreator imageCreator;
 
   @PostConstruct
   public void init() {

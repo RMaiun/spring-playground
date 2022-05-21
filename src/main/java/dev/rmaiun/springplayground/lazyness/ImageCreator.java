@@ -1,9 +1,11 @@
 package dev.rmaiun.springplayground.lazyness;
 
 import javax.annotation.PostConstruct;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 @Service
+@Lazy
 public class ImageCreator {
 
   @PostConstruct
